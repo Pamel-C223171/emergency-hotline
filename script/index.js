@@ -39,10 +39,10 @@ document.getElementById('hotline-section').addEventListener('click', function (e
             newCard.innerHTML = `
             <div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl mt-5">
                     <div>
-                        <h2 class="font-bold">${serviceName}</h2>
-                        <p>${serviceNumber}</p>
+                        <h2 class="font-bold text-base">${serviceName}</h2>
+                        <p class="text-base">${serviceNumber}</p>
                     </div>
-                    <p>${new Date().toLocaleTimeString()}</p>
+                    <p  class="text-base">${new Date().toLocaleTimeString()}</p>
                 </div>
             `
             getElement('call-history').appendChild(newCard)
