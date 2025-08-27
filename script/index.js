@@ -33,6 +33,20 @@ document.getElementById('hotline-section').addEventListener('click', function (e
             const serviceNumber = e.target.parentNode.parentNode.children[2].children[0].innerText
             alert(`${serviceName} ${serviceNumber}`)
 
+            const callHistory = getElement('call-history')
+
+            const newCard = document.createElement('div')
+            newCard.innerHTML = `
+            <div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl mt-5">
+                    <div>
+                        <h2 class="font-bold">${serviceName}</h2>
+                        <p>${serviceNumber}</p>
+                    </div>
+                    <p>${new Date().toLocaleTimeString()}</p>
+                </div>
+            `
+            getElement('call-history').appendChild(newCard)
+
         }
         else {
             alert('not enough coin')
@@ -49,8 +63,19 @@ document.getElementById('hotline-section').addEventListener('click', function (e
 
         getElement('copy-count').innerText = totalCopy
 
+        const serviceNumberCopy = e.target.parentNode.parentNode.children[2].children[0].innerText
+        console.log(serviceNumberCopy)
+
+        navigator.clipboard.writeText(serviceNumberCopy)
+        
+        alert('copying')
+
     }
 
 })
 
 //---------------
+
+getElement('clear-btn').addEventListener('click', function(){
+    getElement('call-history').innerText = ""
+})
