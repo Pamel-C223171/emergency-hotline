@@ -1,0 +1,56 @@
+// console.log('success')
+
+function getElement(id) {
+    const element = document.getElementById(id)
+    return element
+}
+
+// ---------------------heart coin copy count-------------------------------------------------
+
+document.getElementById('hotline-section').addEventListener('click', function (e) {
+    e.preventDefault();
+    // heart count -------------------------------------------------------------
+    if (e.target.className.includes('heart-icon')) {
+
+        const heart = getElement('heart-count').innerText
+        const totalHeart = Number(heart) + 1;
+
+
+        getElement('heart-count').innerText = totalHeart
+
+    }
+    // coin count--------------------------------------------------------------------
+    if (e.target.className.includes('call-btn')) {
+
+        let coin = Number(getElement('coin-count').innerText)
+
+        if (coin >= 20) {
+            coin = coin - 20;
+
+            getElement('coin-count').innerText = coin
+
+            const serviceName = e.target.parentNode.parentNode.children[1].children[0].innerText
+            const serviceNumber = e.target.parentNode.parentNode.children[2].children[0].innerText
+            alert(`${serviceName} ${serviceNumber}`)
+
+        }
+        else {
+            alert('not enough coin')
+        }
+
+    }
+
+    // copy count ----------------------------------------------------------------------
+    if (e.target.className.includes('copy-btn')) {
+
+        const copyCount = getElement('copy-count').innerText
+        const totalCopy = Number(copyCount) + 1;
+
+
+        getElement('copy-count').innerText = totalCopy
+
+    }
+
+})
+
+//---------------
