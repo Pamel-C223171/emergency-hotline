@@ -9,7 +9,7 @@ function getElement(id) {
 
 document.getElementById('hotline-section').addEventListener('click', function (e) {
     e.preventDefault();
-    // heart count -------------------------------------------------------------
+// heart count -------------------------------------------------------------
     if (e.target.className.includes('heart-icon')) {
 
         const heart = getElement('heart-count').innerText
@@ -19,7 +19,7 @@ document.getElementById('hotline-section').addEventListener('click', function (e
         getElement('heart-count').innerText = totalHeart
 
     }
-    // coin count--------------------------------------------------------------------
+// coin count--------------------------------------------------------------------
     if (e.target.className.includes('call-btn')) {
 
         let coin = Number(getElement('coin-count').innerText)
@@ -39,10 +39,10 @@ document.getElementById('hotline-section').addEventListener('click', function (e
             newCard.innerHTML = `
             <div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl mt-5">
                     <div>
-                        <h2 class="font-bold text-base">${serviceName}</h2>
-                        <p class="text-base">${serviceNumber}</p>
+                        <h2 class="inter-normal text-base">${serviceName}</h2>
+                        <p class="text-base hind-madurai-regular">${serviceNumber}</p>
                     </div>
-                    <p  class="text-base">${new Date().toLocaleTimeString()}</p>
+                    <p  class="text-base hind-madurai-regular">${new Date().toLocaleTimeString()}</p>
                 </div>
             `
             getElement('call-history').appendChild(newCard)
@@ -54,7 +54,7 @@ document.getElementById('hotline-section').addEventListener('click', function (e
 
     }
 
-    // copy count ----------------------------------------------------------------------
+// copy count ----------------------------------------------------------------------
     if (e.target.className.includes('copy-btn')) {
 
         const copyCount = getElement('copy-count').innerText
@@ -64,7 +64,6 @@ document.getElementById('hotline-section').addEventListener('click', function (e
         getElement('copy-count').innerText = totalCopy
 
         const serviceNumberCopy = e.target.parentNode.parentNode.children[2].children[0].innerText
-        console.log(serviceNumberCopy)
 
         navigator.clipboard.writeText(serviceNumberCopy)
         
@@ -74,7 +73,7 @@ document.getElementById('hotline-section').addEventListener('click', function (e
 
 })
 
-//---------------
+//---------clear btn-------------------------------------------
 
 getElement('clear-btn').addEventListener('click', function(){
     getElement('call-history').innerText = ""
