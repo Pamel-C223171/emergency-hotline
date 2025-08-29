@@ -1,4 +1,4 @@
-// console.log('success')
+// console.log('connected')
 
 function getElement(id) {
     const element = document.getElementById(id)
@@ -39,17 +39,17 @@ document.getElementById('hotline-section').addEventListener('click', function (e
             newCard.innerHTML = `
             <div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl mt-5">
                     <div>
-                        <h2 class="inter-normal text-base">${serviceName}</h2>
-                        <p class="text-base hind-madurai-regular">${serviceNumber}</p>
+                        <h2 class="inter-normal text-[#111111] text-base">${serviceName}</h2>
+                        <p class="text-base text-[#5c5c5c] hind-madurai-regular">${serviceNumber}</p>
                     </div>
-                    <p  class="text-base hind-madurai-regular">${new Date().toLocaleTimeString()}</p>
+                    <p  class="text-base text-[#111111] hind-madurai-regular">${new Date().toLocaleTimeString()}</p>
                 </div>
             `
             getElement('call-history').appendChild(newCard)
 
         }
         else {
-            alert('not enough coin')
+            alert('You don’t have enough coins to make a call. You need at least 20 coins.')
         }
 
     }
@@ -67,7 +67,7 @@ document.getElementById('hotline-section').addEventListener('click', function (e
 
         navigator.clipboard.writeText(serviceNumberCopy)
         
-        alert('copying')
+        alert(`Copy the number : ${serviceNumberCopy}`)
 
     }
 
@@ -76,5 +76,5 @@ document.getElementById('hotline-section').addEventListener('click', function (e
 //---------clear btn-------------------------------------------
 
 getElement('clear-btn').addEventListener('click', function(){
-    getElement('call-history').innerText = ""
+    getElement('call-history').innerHTML = ""
 })
